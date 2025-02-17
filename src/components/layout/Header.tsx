@@ -14,8 +14,8 @@ const Header = () => {
   const [isMobileMenuOpen, setMobileMenuOpen] = useState(false);
   return (
     <header className="fixed top-0 md:top-4 left-0 right-0 w-full z-50">
-      <Container className="!px-0">
-        <div className="flex justify-between items-center w-full h-full px-4 lg:px-6 py-2.5 lg:py-3 bg-[#363636]/30 md:bg-[#5C6069]/10 backdrop-blur border border-white/10 md:rounded-full">
+      <Container className="!px-0 md:!px-12 lg:!px-20">
+        <div className="flex justify-between items-center w-full h-full px-4 md:px-6 py-4 md:py-3 bg-[#363636]/30 md:bg-[#5C6069]/10 backdrop-blur border border-white/10 md:rounded-full">
           <div>
             <BrandLogo />
           </div>
