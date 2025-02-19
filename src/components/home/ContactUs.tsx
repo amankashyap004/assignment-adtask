@@ -26,7 +26,7 @@ const ContactUs = () => {
             <div className="z-20">
               <p className="text-[10px] md:text-sm lg:w-2/3">
                 Whether you have questions or are ready to discuss your
-                business, we're here to help. Reach out today.
+                business, we&apos;re here to help. Reach out today.
               </p>
             </div>
             <div className="flex flex-col gap-4 w-full z-20">

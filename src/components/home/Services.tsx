@@ -122,7 +122,15 @@ const FrameLines = ({ hide = [] }: { hide?: number[] }) => {
   );
 };
 
-const StyledSection = ({ image, title, description }: any) => {
+const StyledSection = ({
+  image,
+  title,
+  description,
+}: {
+  image?: string;
+  title?: string;
+  description?: string;
+}) => {
   return (
     <div className="relative flex flex-col justify-center items-center gap-4 z-20 px-4 py-16 lg:p-16">
       <section className="absolute -top-10 left-1/2 transform -translate-x-1/2 flex justify-center items-center w-full h-full -z-10">
@@ -141,7 +149,7 @@ const StyledSection = ({ image, title, description }: any) => {
       </section>
       <div className="w-16">
         <Image
-          src={image}
+          src={image || ""}
           alt=""
           width={400}
           height={350}
