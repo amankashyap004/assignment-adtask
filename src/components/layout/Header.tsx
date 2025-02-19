@@ -14,22 +14,34 @@ const Header = () => {
   const [isMobileMenuOpen, setMobileMenuOpen] = useState(false);
   return (
     <header className="fixed top-0 md:top-4 left-0 right-0 w-full z-50">
-      <Container className="!px-0 md:!px-12 lg:!px-20">
+      <Container className="!px-0 md:!px-8 lg:!px-20">
         <div className="flex justify-between items-center w-full h-full px-4 md:px-6 py-4 md:py-3 bg-[#363636]/30 md:bg-[#5C6069]/10 backdrop-blur border border-white/10 md:rounded-full">
           <div>
             <BrandLogo />
           </div>
-          <div className="hidden lg:flex">
+          <div className="hidden md:flex">
             <NavLinks isMobileMenuOpen={isMobileMenuOpen} />
           </div>
-          <div className="lg:hidden flex justify-center items-center text-2xl">
+          <div className="md:hidden flex justify-center items-center text-2xl">
             <button onClick={() => setMobileMenuOpen(!isMobileMenuOpen)}>
               {isMobileMenuOpen ? <IoClose /> : <IoMenu />}
             </button>
           </div>
-          <div className="hidden lg:flex items-center gap-4">
+          <div className="hidden md:flex items-center gap-4">
             <Button className="bg-transparent">Log in</Button>
-            <Button>Start Free Trial</Button>
+            <div className="block md:hidden lg:block">
+              <Button>Start Free Trial</Button>
+            </div>
+            <div className="hidden md:block lg:hidden w-10">
+              <Image
+                src={"/images/icons/icon-free-trial.png"}
+                alt=""
+                width={100}
+                height={100}
+                quality={100}
+                className="object-contain w-full"
+              />
+            </div>
           </div>
         </div>
       </Container>
@@ -127,14 +139,14 @@ const NavLinks = ({
 
   return (
     <nav
-      className={`flex flex-col lg:flex-row lg:items-center gap-4 lg:gap-5 text-sm ${className}`}
+      className={`flex flex-col md:flex-row lg:items-center gap-4 lg:gap-5 text-sm w-full ${className}`}
     >
       {navItems.map((item) => {
         const isActive = pathname === item.href;
         return (
           <div
             key={item.name}
-            className={`md:relative `}
+            className={`w-full`}
             onMouseEnter={() => setActiveMenu(item.name)}
           >
             <div className={`${mobileSubMenuOpen ? "hidden" : ""}`}>
@@ -146,7 +158,7 @@ const NavLinks = ({
                     setActiveMenu(item.name);
                   }
                 }}
-                className={`group flex  md:justify-center items-center gap-2 md:gap-1 transition-all duration-300 ${
+                className={`group flex md:justify-center items-center gap-2 md:gap-1 transition-all duration-300 text-nowrap ${
                   isActive ? "opacity-100" : "opacity-90 hover:opacity-100"
                 }`}
               >
@@ -165,25 +177,25 @@ const NavLinks = ({
             {item.subNav &&
               item.subNav.length > 0 &&
               activeMenu === item.name && (
-                <div className="absolute top-16 md:top-14 left-0 md:left-1/2 md:-translate-x-1/2 md:transform transition-all duration-300 z-50 hidden md:block">
+                <div className="absolute top-16 md:top-20 left-0 md:left-1/2 md:-translate-x-1/2 transform hidden md:flex justify-center items-center transition-all duration-300  z-50">
                   <div
                     onMouseLeave={() => setActiveMenu(null)}
-                    className="flex flex-col md:flex-row justify-center items-start w-full md:min-w-[800px] gap-16 md:rounded-2xl px-4 py-4 md:px-16 md:py-16 text-nowrap
-                  bg-gradient-to-b from-[#0B0B0B] to-[#1D2333] backdrop-blur border border-white/10 "
+                    className="flex flex-col md:flex-row justify-center items-start w-full min-w-[700px] lg:min-w-[800px] gap-8 lg:gap-16 md:rounded-2xl px-4 py-4 md:px-8 lg:px-16 md:py-8 lg:py-16 text-nowrap
+                    bg-gradient-to-b from-[#0B0B0B] to-[#1D2333] backdrop-blur border border-white/10 "
                   >
-                    <section className="md:w-1/3">
-                      <p className="bg-gradient-to-tr from-[#333B4F] to-[#7687B5] bg-clip-text text-transparent font-semibold text-3xl">
+                    <section className="md:w-1/5 lg:w-1/4">
+                      <p className="bg-gradient-to-tr from-[#333B4F] to-[#7687B5] bg-clip-text text-transparent font-semibold text-2xl lg:text-3xl">
                         {item.name}
                       </p>
                     </section>
-                    <section className="w-2/3 grid md:grid-cols-2 gap-y-3 gap-x-16">
+                    <section className="md:w-4/5 lg:w-3/4 grid md:grid-cols-2 gap-y-3 gap-x-8 lg:gap-x-8">
                       {item.subNav.map((subItem, index) => (
                         <div key={index}>
                           {index !== 0 && index !== 1 && (
                             <div className="w-full h-px bg-gradient-to-l from-[#263048] via-[#5C73AE] to-[#263048]"></div>
                           )}
                           <Link href={subItem.href}>
-                            <p className="hover:bg-[#7687B5]/30 px-4 py-1.5 mt-3 rounded transition-all duration-300">
+                            <p className="hover:bg-[#7687B5]/30 px-3 py-1.5 mt-3 rounded transition-all duration-300">
                               {subItem.name}
                             </p>
                           </Link>

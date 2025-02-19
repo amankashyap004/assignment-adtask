@@ -9,7 +9,7 @@ const Container: React.FC<ContainerProps> = ({ children, className }) => {
   return (
     <div className="flex justify-center items-center w-full h-full">
       <div
-        className={`container px-4 md:px-12 lg:px-20 flex justify-center items-center w-full h-full ${className}`}
+        className={`container px-4 md:px-8 lg:px-20 flex justify-center items-center w-full h-full ${className}`}
       >
         {children}
       </div>
