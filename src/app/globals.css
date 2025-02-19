@@ -11,3 +11,51 @@ body {
   color: var(--foreground);
   background: var(--background);
 }
+
+.text-log:hover {
+  text-shadow: 1px 1px 2px #e2e8f8, 0 0 1em #e2e8f8, 0 0 0.2em #858992;
+}
+
+@keyframes rotate {
+  /* from {
+    transform: translate(-50%, -50%) rotate(0turn);
+  }
+  to {
+    transform: translate(-50%, -50%) rotate(1turn);
+  } */
+
+  from {
+    transform: translate(-50%, -50%) scale(1.5) rotate(0turn);
+  }
+
+  to {
+    transform: translate(-50%, -50%) scale(1.5) rotate(1turn);
+  }
+}
+
+.animate-rotate {
+  animation: rotate 2s linear infinite;
+}
+
+.animate-rotate-border {
+  animation: rotate 6s linear infinite;
+}
+
+@keyframes twinkle {
+  0% {
+    transform: scale(0);
+    opacity: 0;
+  }
+  50% {
+    transform: scale(1);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(0);
+    opacity: 0;
+  }
+}
+
+.animate-twinkle {
+  animation: twinkle 3s infinite ease-in-out;
+}
